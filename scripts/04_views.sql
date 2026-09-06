@@ -61,7 +61,7 @@ WITH StudentAverages AS ( -- temp table
         AVG(e.Grade) AS AverageGrade,
         RANK() OVER (
             PARTITION BY s.DepId -- separate rank for each department
-            ORDER BY AVG(e.Grade) DESC, s.StudentId
+            ORDER BY AVG(e.Grade) DESC
         ) AS RankInDept
     FROM STUDENT s
     INNER JOIN ENROLLMENT e ON s.StudentId = e.StudentId
